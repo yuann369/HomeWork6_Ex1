@@ -12,11 +12,11 @@ public class StatsService {
 
     public double mediumSales(long[] sales) { //Средняя сумма продаж в месяц
         int sum = 0;
-        double medium=0;
+        double medium = 0;
         for (long sale : sales) {
             sum += sale;
         }
-        medium=(double)sum/sales.length;
+        medium = (double) sum / sales.length;
         return medium;
     }
 
@@ -46,9 +46,10 @@ public class StatsService {
 
     public int belowMediumSales(long[] sales) { //Кол-во месяцев, в которых продажи были ниже среднего
         int month = 0;
-        int belowMonth=0;
+        int belowMonth = 0;
+        double medium = mediumSales(sales);
         for (long sale : sales) {
-            if (sale < mediumSales(sales)) {
+            if (sale < medium) {
                 belowMonth++;
             }
             month = month + 1;
@@ -58,9 +59,10 @@ public class StatsService {
 
     public int aboveMediumSales(long[] sales) { //Кол-во месяцев, в которых продажи были выше среднего
         int month = 0;
-        int aboveMonth=0;
+        int aboveMonth = 0;
+        double medium = mediumSales(sales);
         for (long sale : sales) {
-            if (sale > mediumSales(sales)) {
+            if (sale > medium) {
                 aboveMonth++;
             }
             month = month + 1;
